@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f3f8ff;
+    font-family: "Nunito", sans-serif;
+    height: 100%;
+    @apply tracking-wide text-gray-700;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+  }
+
+  hr {
+    @apply my-4 mx-0 border-gray-100 border;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    /* -webkit-tap-highlight-color: transparent; */
+    /* -webkit-user-select: none; */
+    /* -khtml-user-select: none; */
+    /* -moz-user-select: none; */
+    /* -ms-user-select: none; */
+    /* user-select: none; */
+  }
+
+  @media print {
+    body {
+      background-color: white;
+    }
+    body * {
+      visibility: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    .hide-on-print,
+    .hide-on-print * {
+      display: none;
+    }
+    #section-to-print,
+    #section-to-print * {
+      visibility: visible;
+    }
+    #section-to-print {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+@layer components {
+  @import url("./button.css");
+  @import url("./card.css");
+  @import url("./form.css");
+
+  [contenteditable] {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  @screen sm {
+    .container {
+      max-width: 640px;
+    }
+  }
+  @screen md {
+    .container {
+      max-width: 768px;
+    }
+  }
+  @screen lg {
+    .container {
+      max-width: 1024px;
+    }
+  }
+  @screen xl {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  .page-content {
+    @apply relative pt-6 pb-20;
+  }
+
+  @screen md {
+    .page-content {
+      @apply relative pt-10 pb-20 px-24;
+    }
+  }
+
+  .article-editor {
+    @apply relative font-source-serif-pro;
+  }
+
+  .article-editor [custom-placeholder]:empty:not(:focus):before {
+    content: attr(custom-placeholder);
+    color: #999;
+  }
+
+  .article-editor p {
+    @apply leading-8 /* pb-6  */;
+  }
+
+  .article-editor blockquote {
+    @apply leading-7 text-lg text-gray-400 italic border-l-4 border-gray-100 -ml-2 pl-8 pr-8; /* pb-4  */
+    font-family: "Source Serif Pro", serif;
+  }
+
+  .article-editor pre {
+    @apply leading-5 text-lg; /* pb-6  */
+  }
+
+  .article-editor h1 {
+    @apply leading-10 font-bold text-5xl; /* pt-8 pb-3  */
+  }
+
+  .article-editor h2 {
+    @apply leading-8 font-bold text-4xl; /* pt-6 pb-3  */
+  }
+
+  .article-editor h3 {
+    @apply leading-7 font-bold text-3xl; /* pt-6 pb-3  */
+  }
+
+  /* .article-editor h4 {
+    @apply leading-6 font-bold text-2xl;
+  }
+  
+  .article-editor h5 {
+    @apply leading-6 font-bold text-xl;
+  }
+  
+  .article-editor h6 {
+    @apply leading-6 font-bold text-lg;
+  } */
+
+  .article-editor u {
+    @apply underline;
+  }
+
+  .article-editor em {
+    @apply italic;
+  }
+
+  .article-editor strong {
+    @apply font-bold;
+  }
+
+  /* purgecss start ignore */
+  /* purgecss ignore */
+  .article-viewer {
+    @apply relative font-source-serif-pro font-extralight;
+  }
+
+  /* purgecss ignore */
+  .article-viewer [custom-placeholder]:empty:not(:focus):before {
+    content: attr(custom-placeholder);
+    color: #999;
+  }
+
+  /* purgecss ignore */
+  .article-viewer p {
+    @apply leading-8 text-base whitespace-pre-wrap break-words;
+    @apply pb-6 mb-2;
+  }
+  /* purgecss ignore */
+  @screen md {
+    .article-viewer p {
+      @apply leading-8 text-lg;
+      @apply pb-6 mb-2;
+    }
+  }
+
+  /* purgecss ignore */
+  .article-viewer img {
+    @apply w-full block object-center object-contain;
+    @apply pb-6 mb-2;
+  }
+
+  /* purgecss ignore */
+  .article-viewer a {
+    @apply text-blue-600 underline inline;
+  }
+
+  /* purgecss ignore */
+  .article-viewer iframe {
+    @apply w-full block object-center object-contain;
+    @apply pb-6 mb-2;
+  }
+
+  /* purgecss ignore */
+  .article-viewer blockquote,
+  .article-viewer q {
+    @apply leading-7 text-base text-gray-400 italic border-l-4 border-gray-100 -ml-2 pl-4 pr-2;
+    @apply mt-2 mb-6;
+  }
+  /* purgecss ignore */
+  @screen md {
+    .article-viewer blockquote,
+    .article-viewer q {
+      @apply leading-7 text-lg text-gray-400 italic border-l-4 border-gray-100 -ml-2 pl-6 pr-4;
+      @apply mt-2 mb-8;
+    }
+  }
+
+  /* purgecss ignore */
+  .article-viewer pre {
+    @apply leading-5 text-lg;
+    @apply pb-6 mb-2;
+  }
+
+  /* purgecss ignore */
+  .article-viewer h1 {
+    @apply leading-10 font-bold text-4xl;
+    @apply pt-8 pb-3 mb-0;
+  }
+  /* purgecss ignore */
+  @screen md {
+    .article-viewer h1 {
+      @apply leading-10 font-bold text-5xl;
+      @apply pt-8 pb-3 mb-2;
+    }
+  }
+
+  /* purgecss ignore */
+  .article-viewer h2 {
+    @apply leading-8 font-bold text-3xl;
+    @apply pt-6 pb-3 mb-0;
+  }
+  /* purgecss ignore */
+  @screen md {
+    .article-viewer h2 {
+      @apply leading-8 font-bold text-4xl;
+      @apply pt-6 pb-3 mb-2;
+    }
+  }
+
+  /* purgecss ignore */
+  .article-viewer h3 {
+    @apply leading-7 font-bold text-2xl;
+    @apply pt-6 pb-3 mb-0;
+  }
+  /* purgecss ignore */
+  @screen md {
+    .article-viewer h3 {
+      @apply leading-7 font-bold text-3xl;
+      @apply pt-6 pb-3 mb-2;
+    }
+  }
+
+  /* purgecss ignore */
+  .article-viewer u {
+    @apply underline;
+  }
+
+  /* purgecss ignore */
+  .article-viewer b {
+    @apply font-bold;
+  }
+
+  /* purgecss ignore */
+  .article-viewer i {
+    @apply italic;
+  }
+
+  /* purgecss ignore */
+  .article-viewer em {
+    @apply italic;
+  }
+
+  /* purgecss ignore */
+  .article-viewer strong {
+    @apply font-bold;
+  }
+  /* purgecss end ignore */
+
+  .badge {
+    @apply rounded-full px-3 py-1 text-xs font-thin;
+  }
+
+  .badge-primary {
+    @apply bg-primary-500 text-white;
+  }
+
+  .badge-success {
+    @apply bg-green-500 text-white;
+  }
+
+  .badge-disabled {
+    @apply bg-gray-500 text-white;
+  }
+
+  .font-source-serif-pro {
+    font-family: "Source Serif Pro", serif;
+  }
+
+  .font-inter {
+    font-family: "Inter", sans-serif;
+  }
+
+  .link-disabled {
+    @apply text-gray-500 cursor-not-allowed;
+  }
+}
+
+@layer utilities {
+  .truncate-2-lines {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .truncate-3-lines {
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .truncate-5-lines {
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+
+  .on-print-avoid-page-break {
+    page-break-inside: avoid;
+  }
+
+  .-webkit-input-placeholder {
+    color: peachpuff;
+    font-size: 13px;
+  }
+  .-moz-placeholder {
+    color: peachpuff;
+    font-size: 13px;
+  }
+  .-ms-input-placeholder {
+    color: peachpuff;
+    font-size: 13px;
+  }
+  .placeholder-text-sm {
+    color: peachpuff;
+    font-size: 12px;
+  }
+
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  @responsive {
+    .scrolling-touch {
+      -webkit-overflow-scrolling: touch;
+    }
+    .scrolling-auto {
+      -webkit-overflow-scrolling: auto;
+    }
+  }
+}
